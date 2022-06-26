@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Berhasil Checkout</title>
+<title>payment</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
  <link rel="stylesheet" href="css/style.css">
@@ -17,29 +17,6 @@
 </head>
 
 <body>
-	
 @include('components.navbar')
-	
-	
-    <section class="checkout">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-12 col-12">
-                    <img src="images/payment 1.png" height="200" class="mb-5" alt=" ">
-                </div>
-                <div class=" col-lg-12 col-12 header-wrap mt-4">
-                    <p  class="story">
-                        WHAT A DAY!
-                    </p>
-                    <h2 class="primary-header ">
-                        Berhasil Checkout
-                    </h2>
-                    <a href="#" style="background-color: #BF9270; border-color: #BF9270" class="btn btn-primary mt-3">
-                        My Dashboard
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+
 </body>
-</html>

@@ -70,7 +70,7 @@
                                     
                                 </div>
                                 <div class="mb-5">
-                                   <button style="background-color: #BF9270; border-color: #BF9270; border-radius: 20px; width: 410px; height: 45px"  type="submit" back >Pay Now</button>
+                                   <button style="background-color: #BF9270; border-color: #BF9270; border-radius: 20px; width: 475px; height: 45px"  type="submit" back >Pay Now</button>
                                 <p class="text-center subheader mt-4">
                                     <img src="ic_secure.svg" alt=""> Your payment is secure and encrypted.
                                 </p>
