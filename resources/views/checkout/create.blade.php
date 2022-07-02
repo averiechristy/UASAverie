@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <title>Checkout</title>
-	
-	<link rel="stylesheet" type="text/css" href="style.css">
+
+
 	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
- <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,700&display=swap" rel="stylesheet">
@@ -26,10 +26,10 @@
             <div class="row text-center ">
                 <div class="col-lg-12 col-12 header-wrap">
                     <p class="story">
-                        YOUR FUTURE CAREER
+                      Rocking Horse Mama
                     </p>
                     <h2 class="primary-header">
-                        Start Invest Today
+                        One Stop Solution for Mom and mom to be
                     </h2>
                 </div>
             </div>
@@ -38,35 +38,36 @@
                     <div class="row">
                         <div class="col-lg-5 col-12">
                             <div class="item-bootcamp">
-                                <img src="images\rempel.png" alt="" class="cover">
-                                <h1 class="package">
-                                    Dres Rempel 
+                                <img src="{{asset('images/rempel.png')}}" alt="" class="cover">
+                                <h1 class="package text-uppercase">
+                                   {{$product->title}}
                                 </h1>
 								
-								<p> Rp. 170.000</p>
+								<p> Rp. {{$product->price}}</p>
                                 <p class="description">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio diam adipiscing suspendisse porttitor auctor pellentesque urna, molestie. 
+                                    Dengan bahan yang lebut sangat cocok untuk para ibu dan calon ibu
                                 </p>
                             </div>
                         </div>
                         <div class="col-lg-1 col-12"></div>
                         <div class="col-lg-6 col-12">
-                            <form action="#" class="basic-form">
+                            <form action="{{route('checkout.store', $product->id)}}" class="basic-form" method="POSt">
+                                @csrf
                                 <div class="mb-4">
-                                    <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="fullname" aria-describedby="emailHelp">
+                                    <label  class="form-label">Full Name</label>
+                                    <input name="name" type="text" class="form-control" value="{{Auth::user()->name}}"/>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                                    <label  class="form-label">Email</label>
+                                    <input  name="email" type="email" class="form-control" value="{{Auth::user()->email}}"/>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-                                    <input type="number" class="form-control" id="phonenumber" aria-describedby="emailHelp">
+                                    <label  class="form-label">Phone Number</label>
+                                    <input name="phone_number" type="number" class="form-control" />
                                 </div>
                                 <div class="mb-4">
-                                    <label for="exampleInputEmail1" class="form-label">Address</label>
-									<textarea style="background:#F1F1F5" class="form-control" type="text"  id="address" aria-describedby="emailHelp"></textarea>
+                                    <label  class="form-label">Address</label>
+									<textarea name="address" style="background:#F1F1F5" class="form-control" type="text"  ></textarea>
                                     
                                 </div>
                                 <div class="mb-5">

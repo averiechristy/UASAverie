@@ -18,19 +18,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 	<title>Rocking Horse MAMA</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
 </head>
 
 <body>
 	  @include('components.navbar')
   <section class="banner">
-        <div class="container">
+        <div class="container" >
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-12">
                     <div class="row">
                         <div class="col-lg-6 col-12 copywriting">
                             <a href="#">
-                                <img src="images\homepic.png" class="img-fluid" alt="">
+                                <img src="{{asset('images/homepic.png')}}" class="img-fluid" alt="">
                             </a>
                         </div>
                         <div class="col-lg-6 col-12 ">
@@ -61,26 +61,30 @@
 		<p><b>This is the best product from Rocking Horse Mama</b></p>
 		<div class="row">
 			<div class ="col2">
-				<a href="checkout.html">
+				<a href="{{route('checkout.create','Dresss-Rempel' )}}" alt="">
 				<div class="layer">
 				<h3><b> Dress Rempel <br> Rp. 170.000</b> </h3>
 					
 				</div>
-				<img src="images\produk1.png">
+				<img src="{{asset('images/produk1.png')}}">
 					</a>
 			</div>
 			
 			<div class ="col2">
+			<a href="{{route('checkout.create','kulot-pendek' )}}" alt="">
 				<div class="layer">
 				<h3> <b>Kulot Hamil Pendek<br> Rp. 99.000</b></h3>
 				</div>
-				<img src="images\produk2.png">
+				<img src="{{asset('images/produk2.png')}}">
+				</a>
 			</div>
 				<div class ="col2">
+				<a href="{{route('checkout.create','kulot-panjang' )}}" alt="">
 				<div class="layer">
 				<h3><b> Kulot Hamil Panjang <br> Rp. 70.000</b></h3>
 					</div>
-					<img src="images\produk3.png">
+					<img src="{{asset('images/produk3.png')}}">
+					</a>
 				</div>
 				
 			</div>
@@ -89,7 +93,7 @@
 	
 	<section class="testi">
 	<h1>Our Testimonials</h1>
-	<p><b>The customers said about Lotus Five</b></p>
+	<p><b>The customers said about Rocking Horse Mama</b></p>
 	
 	<div class="row">
 	<div class="col3">

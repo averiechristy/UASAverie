@@ -5,7 +5,7 @@
 <title>Berhasil Checkout</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
- <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,700&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-12 col-12">
-                    <img src="images/payment 1.png" height="200" class="mb-5" alt=" ">
+                    <img src="{{asset('images/payment 1.png')}}" height="200" class="mb-5" alt=" ">
                 </div>
                 <div class=" col-lg-12 col-12 header-wrap mt-4">
                     <p  class="story">
@@ -34,7 +34,7 @@
                     <h2 class="primary-header ">
                         Berhasil Checkout
                     </h2>
-                    <a href="#" style="background-color: #BF9270; border-color: #BF9270" class="btn btn-primary mt-3">
+                    <a href="{{route('dashboard')}}" style="background-color: #BF9270; border-color: #BF9270" class="btn btn-primary mt-3">
                         My Dashboard
                     </a>
                 </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChekcoutsTable extends Migration
+class CreateCheckoutsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateChekcoutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chekcouts', function (Blueprint $table) {
+        Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('products_id')->constrained();
@@ -34,6 +34,6 @@ class CreateChekcoutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chekcouts');
+        Schema::dropIfExists('checkouts');
     }
 }

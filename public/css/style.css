@@ -95,7 +95,7 @@ ul{
 	margin: auto;
 	text-align: center;
 	padding-top: 50px;
-	margin-top: -10px;
+	margin-top: 80px;
 }
 
 .best .row {
@@ -216,21 +216,22 @@ color: #FFBF1E;
   color: #E3B7A0;
 }
 
+
 .login-user .right {
   width: 50%;
   float: left;
   padding: 120px;
-	
-
-}
-
-.login-user .right .tulis {
-	margin-top: -50px;
+  
 }
 
 .login-user .right .people {
   margin-top: 100px;
   height: 170px;
+}
+
+
+.login-user .right .tulis {
+	margin-top: -50px;
 }
 
 .login-user .right .logo {
@@ -249,27 +250,23 @@ color: #FFBF1E;
 }
 
 .login-user .right .btn-google-login .icon {
-  margin-right: 8px;
-	position: relative;
+position: relative;
 width: 20px;
 height: 20px;
+  margin-right: 8px;
 }
 
 .login-user .left {
- background-color: #FFEDDB;
-
+  background-color: #FFEDDB;
   width: 50%;
   min-height: 900px;
-  text-align:left;
+  text-align: center;
   float: left;
 }
 
 .login-user .left img {
-position: absolute;
-width: 149px;
-height: 138px;
-margin-top: 30px;
-	margin-left: 30px;
+  margin-top: 100px;
+  height: 540px;
 }
 
 .testimonials {
@@ -484,7 +481,7 @@ margin-top: 30px;
 }
 
 .banner {
-  padding: 80px 0 80px 0;
+  margin-top: 20px
 }
 
 .banner .copywriting {
@@ -534,6 +531,7 @@ margin-top: 30px;
 .checkout {
   padding-top: 80px;
   padding-bottom: 80px;
+  margin-top: -100px;
 }
 
 .checkout .item-bootcamp .cover {

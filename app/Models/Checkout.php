@@ -5,17 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-class Chekcout extends Model
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Checkout extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
+  protected $fillable = [
         'user_id',
         'products_id',
         'name',
-        'emai',
-        'phone number',
+        'email',
+        'phone_number',
+        'address',
         'is_paid',
         
     ];
+
+    public function Product(): BelongsTo{
+        return $this->belongsTo(Product::class, 'products_id');
+    }
 }
