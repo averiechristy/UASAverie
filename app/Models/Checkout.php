@@ -25,4 +25,9 @@ class Checkout extends Model
     public function Product(): BelongsTo{
         return $this->belongsTo(Product::class, 'products_id');
     }
+
+    public function User(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
