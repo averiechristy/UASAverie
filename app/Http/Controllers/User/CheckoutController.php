@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Requests\User\Checkout\Store;
 use Auth;
 
 class CheckoutController extends Controller
@@ -25,8 +26,13 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Product $product)
+    public function create(Product $product, Request $request)
     {
+        
+        if ($product->isRegistered) {
+            $request->session()->flash('error', "You already buy {$product->title}");
+            return redirect(route('dashboard'));
+        }
         
         return view('checkout.create',[
             'product' => $product
@@ -39,8 +45,9 @@ class CheckoutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Product $product)
+    public function store(Store $request, Product $product)
     {
+        return $request->all();
         //mapping request data
         $data = $request->all();
         $data['user_id'] = Auth::id();

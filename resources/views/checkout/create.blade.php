@@ -56,19 +56,31 @@
                                 <div class="mb-4">
                                     <label  class="form-label">Full Name</label>
                                     <input name="name" type="text" class="form-control" value="{{Auth::user()->name}}"/>
+                                
+                                    @if ($errors->has('name'))
+                                        <p class="text-danger">{{$errors->first('name')}}</p>
+                                    @endif
                                 </div>
                                 <div class="mb-4">
                                     <label  class="form-label">Email</label>
                                     <input  name="email" type="email" class="form-control" value="{{Auth::user()->email}}"/>
+                                    @if ($errors->has('email'))
+                                        <p class="text-danger">{{$errors->first('email')}}</p>
+                                    @endif
                                 </div>
                                 <div class="mb-4">
                                     <label  class="form-label">Phone Number</label>
                                     <input name="phone_number" type="number" class="form-control" />
+                                    @if ($errors->has('phone_number'))
+                                        <p class="text-danger">{{$errors->first('phone_number')}}</p>
+                                    @endif
                                 </div>
                                 <div class="mb-4">
                                     <label  class="form-label">Address</label>
 									<textarea name="address" style="background:#F1F1F5" class="form-control" type="text"  ></textarea>
-                                    
+                                    @if ($errors->has('address'))
+                                        <p class="text-danger">{{$errors->first('address')}}</p>
+                                    @endif
                                 </div>
                                 <div class="mb-5">
                                    <button style="background-color: #BF9270; border-color: #BF9270; border-radius: 20px; width: 475px; height: 45px"  type="submit" back >Pay Now</button>
