@@ -2,7 +2,7 @@
 # Introduction
 
 @component('mail::message')
-# Purchase {Product}: {{$checkout->Product->title}}
+# Purchase Product: {{$checkout->Product->title}}
 
 Hi {{$checkout->User->name}}
 <br>

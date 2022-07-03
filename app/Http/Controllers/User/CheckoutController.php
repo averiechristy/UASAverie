@@ -34,7 +34,7 @@ class CheckoutController extends Controller
         
         if ($product->isRegistered) {
             $request->session()->flash('error', "You already buy {$product->title}");
-            return redirect(route('dashboard'));
+            return redirect(route('user.dashboard'));
         }
         
         return view('checkout.create',[
@@ -116,9 +116,4 @@ class CheckoutController extends Controller
        
     }   
 
-    public function invoice(Checkout $checkout)
-    {
-            return $checkout;
-       
-    }  
 }
