@@ -19,6 +19,9 @@ class Checkout extends Model
         'phone_number',
         'address',
         'is_paid',
+        'payment_status',
+        'midtrans_url',
+        'midtrans_booking_code'
         
     ];
 
