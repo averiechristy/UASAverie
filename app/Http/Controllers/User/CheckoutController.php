@@ -129,6 +129,8 @@ class CheckoutController extends Controller
     public function getSnapRedirect(Checkout $checkout)
     {
         $orderId = $checkout->id.'-'.Str::random(5);
+        $price = $checkout->Product->price;
+
         $checkout->midtrans_booking_code = $orderId;
         $transaction_details = [
             'order_id' => $orderId,
@@ -178,9 +180,8 @@ class CheckoutController extends Controller
             return false;
         }
     }
-    public function midtransCallback(Request $request)
-    {
-        $notif = $request->method() == 'POST' ? new Midtrans\Notification() : Midtrans\Transaction::status($request->order_id);
+    public function midtransCallback(Request $request){
+        $notif = $request->method() == "POST" ? new Midtrans\Notification() : Midtrans\Transaction::status($request->order_id);
 
         $transaction_status = $notif->transaction_status;
         $fraud = $notif->fraud_status;
@@ -190,37 +191,46 @@ class CheckoutController extends Controller
 
         if ($transaction_status == 'capture') {
             if ($fraud == 'challenge') {
-                // TODO Set payment status in merchant's database to 'challenge'
-                $checkout->payment_status = 'pending';
+               
+            // TODO Set payment status in merchant's database to 'challenge'
+            $checkout->payment_status = 'pending';
             }
             else if ($fraud == 'accept') {
-                // TODO Set payment status in merchant's database to 'success'
-                $checkout->payment_status = 'paid';
+                
+            // TODO Set payment status in merchant's database to 'success'
+            $checkout->payment_status = 'paid';
             }
         }
         else if ($transaction_status == 'cancel') {
             if ($fraud == 'challenge') {
-                // TODO Set payment status in merchant's database to 'failure'
-                $checkout->payment_status = 'failed';
+               
+            // TODO Set payment status in merchant's database to 'failure'
+            $checkout->payment_status = 'failed';
+           
             }
             else if ($fraud == 'accept') {
-                // TODO Set payment status in merchant's database to 'failure'
-                $checkout->payment_status = 'failed';
+
+            // TODO Set payment status in merchant's database to 'failure'
+            $checkout->payment_status = 'faid';
             }
         }
         else if ($transaction_status == 'deny') {
+           
             // TODO Set payment status in merchant's database to 'failure'
             $checkout->payment_status = 'failed';
         }
         else if ($transaction_status == 'settlement') {
+           
             // TODO set payment status in merchant's database to 'Settlement'
             $checkout->payment_status = 'paid';
         }
         else if ($transaction_status == 'pending') {
+           
             // TODO set payment status in merchant's database to 'Pending'
             $checkout->payment_status = 'pending';
         }
         else if ($transaction_status == 'expire') {
+           
             // TODO set payment status in merchant's database to 'expire'
             $checkout->payment_status = 'failed';
         }
