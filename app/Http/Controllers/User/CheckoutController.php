@@ -12,6 +12,7 @@ use Auth;
 use Mail;
 use App\Mail\Checkout\AfterCheckout;
 use Midtrans;
+use App\Models\Discount;
 
 
 class CheckoutController extends Controller
@@ -63,11 +64,20 @@ class CheckoutController extends Controller
        
         //mapping request data
         $data = $request->all();
+        
         $data['user_id'] = Auth::id();
         $data['products_id'] = $product->id;
        
+        // checkout discount
+        if ($request->discount) {
+            $discount = Discount::whereCode($request->discount)->first();
+            $data['discount_id'] = $discount->id;
+            $data['discount_percentage'] = $discount->percentage;
+        }
+
         // // // create checkout
         $checkout = Checkout::create($data);
+       
         $this->getSnapRedirect($checkout);
 
          // sending email
@@ -132,9 +142,21 @@ class CheckoutController extends Controller
         $price = $checkout->Product->price;
 
         $checkout->midtrans_booking_code = $orderId;
+        $discountPrice = 0;
+        if ($checkout->Discount) {
+            $discountPrice = $price * $checkout->discount_percentage / 100;
+            $item_details[] = [
+                'id' => $checkout->Discount->code,
+                'price' => -$discountPrice,
+                'quantity' => 1,
+                'name' => "Discount {$checkout->Discount->name} ({$checkout->discount_percentage}%)"
+            ];
+        }
+
+        $total = $price - $discountPrice;
         $transaction_details = [
             'order_id' => $orderId,
-            'gross_amount' => $checkout->Product->price 
+            'gross_amount' => $total
         ];
 
         $item_details[] = [
@@ -172,7 +194,7 @@ class CheckoutController extends Controller
             // Get Snap Payment Page URL
             $paymentUrl = \Midtrans\Snap::createTransaction($midtrans_params)->redirect_url;
             $checkout->midtrans_url = $paymentUrl;
-            
+            $checkout->total = $total;
             $checkout->save();
 
             return $paymentUrl;

@@ -21,7 +21,10 @@ class Checkout extends Model
         'is_paid',
         'payment_status',
         'midtrans_url',
-        'midtrans_booking_code'
+        'midtrans_booking_code',
+        'discount_id', 
+        'discount_percentage',
+         'total'
         
     ];
 
@@ -33,4 +36,9 @@ class Checkout extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function Discount(): BelongsTo
+    {
+        return $this->belongsTo(Discount::class);
+    }
 }
+
