@@ -5,8 +5,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CheckoutController as AdminCheckout;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
+use App\Http\Controllers\Admin\DiscountController as AdminDiscount;
 use App\Http\Controllers\User\DashboardController as UserDashboard;
 use App\Http\Controllers\User\CheckoutController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,10 +52,10 @@ Route::prefix('admin/dashboard')->name('admin.')->middleware('ensureUserRole:adm
     Route::get('/', [AdminDashboard::class, 'index'])->name('dashboard');
 
     // admin checkout
-    Route::post('checkout/{checkout}', [AdminCheckout::class, 'update'])->name('checkout.update');
+        Route::post('checkout/{checkout}', [AdminCheckout::class, 'update'])->name('checkout.update');
 
-     
-});
+        Route::resource('discount', AdminDiscount::class);
+    });
 });
 
 // Route::get('/dashboard', function () {

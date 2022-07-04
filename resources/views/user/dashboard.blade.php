@@ -52,13 +52,14 @@
                                 <strong>Rp. {{$checkout->Product->price}}</strong>
                             </td>
                             <td>
-                                @if ($checkout->is_paid)
-                                <strong class="text-green">Payment Successs</strong>
-                                @else
-                                <strong>Waiting for Payment</strong>
-                                @endif
-                                
+                                  <strong>{{$checkout->payment_status}}</strong>
+                                </td>
+                                <td>
+                             @if ($checkout->payment_status == 'waiting')
+                                        <a href="{{$checkout->midtrans_url}}" class="btn btn-primary">Pay Here</a>
+                                    @endif
                             </td>
+                            
                             <td>
                                 <a href="https://wa.me/087727606097?text=Hi, saya ingin bertanya tentang {{$checkout->Product->title}}" class="btn btn-primary">
                                     Contact Support
@@ -68,7 +69,7 @@
                         @empty
                         <tr>
                             <td colspan="5"></td>
-                                <h3> No Data </h3>
+                                <h3> No Product Checkouted </h3>
                         </tr>
 
                         @endforelse

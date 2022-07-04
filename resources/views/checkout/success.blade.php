@@ -29,11 +29,16 @@
                 </div>
                 <div class=" col-lg-12 col-12 header-wrap mt-4">
                     <p  class="story">
-                        WHAT A DAY!
+                        Have a Nice Day
                     </p>
+
                     <h2 class="primary-header ">
-                        Berhasil Checkout
+                        Success Checkout
                     </h2>
+
+                    <p>
+                        Silahkan menuju halaman Dashboard dan lakukan pembayaran
+                    </p>
                     <a href="{{route('dashboard')}}" style="background-color: #BF9270; border-color: #BF9270" class="btn btn-primary mt-3">
                         My Dashboard
                     </a>
