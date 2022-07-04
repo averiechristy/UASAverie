@@ -25,7 +25,7 @@
                                     <th colspan="2">Action</th>
                                 </tr>
                             </thead>
-                            <!-- <tbody>
+                            <tbody>
                                 @forelse ($discounts as $discount)
                                     <tr>
                                         <td>{{$discount->name}}</td>
@@ -50,7 +50,7 @@
                                         <td colspan="6">No discount created</td>
                                     </tr>
                                 @endforelse
-                            </tbody> -->
+                            </tbody>
                         </table>
                     </div>
                 </div>

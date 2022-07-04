@@ -8,13 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Discount extends Model
 {
+    
+
     use HasFactory, SoftDeletes;
 
-    protected $fillable =[
-    'name',
-    'code',
-    'description',
-    'precentage'    
-    
-    ];
+    protected $fillable = ['name', 'code', 'description', 'percentage'];
 }
